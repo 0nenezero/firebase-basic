@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import Router from "./routes/Router";
+import { authService } from "./firebase/fbConfig";
 
 function App() {
-  return <div>App</div>;
+  const [isLogin, setIsLogin] = useState(authService.currentUser);
+  return <Router isLogin={isLogin} />;
 }
 
 export default App;
